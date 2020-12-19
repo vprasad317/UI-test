@@ -1,0 +1,14 @@
+<div class="container d-flex align-items-center justify-content-center pt-5">
+    <mat-form-field class="mr-4">
+        <mat-label>Search a Book*</mat-label>
+        <input matInput [formControl]="searchCtrl">
+        <mat-hint>Try Java</mat-hint>
+        <mat-error *ngIf="searchCtrl.hasError('required')">
+            required
+        </mat-error>
+
+    </mat-form-field>
+    <button [disabled]="searchCtrl.value == '' || searchCtrl.hasError('required')" mat-raised-button
+        class="cursor-pointer" mat-button color="primary" (click)="getBooks()">Search</button>
+</div>
+<router-outlet></router-outlet>
